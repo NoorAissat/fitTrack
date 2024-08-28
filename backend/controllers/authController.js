@@ -96,10 +96,16 @@ const signOut =async(req,res) =>{
     });
 };
 
+//create new workout
+const createNewWorkoutPlan = (req,res) => {
+
+}
+
 module.exports ={
     test,
     registerUser,
     loginUser,
     getProfile,
-    signOut
+    signOut,
+    createNewWorkoutPlan
 }

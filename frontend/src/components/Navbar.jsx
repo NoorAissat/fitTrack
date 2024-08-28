@@ -29,15 +29,26 @@ export default function Navbar() {
         Home
       </Link>
       <div className="space-x-6">
+        {!user && (
+          <>
         <Link to="/register" className="text-white font-bold hover:text-gray-400 transition duration-300">
           Register
         </Link>
         <Link to="/login" className="text-white font-bold hover:text-gray-400 transition duration-300">
           Login
         </Link>
+        </>
+        )}
+        {user && (
+          <>
+          <Link to="/Dashboard" className="text-white font-bold hover:text-gray-400 transition duration-300">
+          Dashboard
+        </Link>
         <button onClick = {userSignOut} className='text-white font-bold hover:text-gray-400 transition duration-300'>
         Sign out
         </button>
+        </>
+        )}
       </div>
     </nav>
   </header>

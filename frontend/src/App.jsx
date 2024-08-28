@@ -9,6 +9,7 @@ import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from '../context/userContext';
 import Dashboard from './pages/Dashboard';
 import './index.css'; 
+import NewWorkoutPlan from './pages/NewWorkoutPlan';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/createNewWorkoutPlan' element={<NewWorkoutPlan/>}/>
       </Routes>
       
     </UserContextProvider>
