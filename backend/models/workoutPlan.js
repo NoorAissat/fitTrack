@@ -6,6 +6,11 @@ const exerciseSchema = new Schema({
     reps : Number,
     weight : Number,
     lastUsedWeight : Number,
+    history : [{
+        date: {type: Date, default: Date.now},
+        reps: Number,
+        weight: Number,
+    }],
 });
 
 const daySchema = new Schema({

@@ -2,11 +2,13 @@
 import React ,{useState, useContext, useEffect} from 'react';
 import { UserContext} from '../../context/userContext';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function ExistWorkoutPlan() {
   const {user} = useContext(UserContext);
   const [workoutPlan, setWorkoutPlan] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchWorkoutPlan = async () => {
@@ -38,6 +40,10 @@ export default function ExistWorkoutPlan() {
       console.error('Error updating workout plan', error);
     })
   };
+
+  const handleProgressClick =(planId) =>{
+    navigate(`/progress/${planId}`);
+  }
   
   return (
     <div className="bg-darkGray h-screen p-8">
@@ -56,6 +62,13 @@ export default function ExistWorkoutPlan() {
       {selectedPlan && (
         <div className="mt-8 p-4 bg-gray-900 rounded">
           <h2 className="text-white text-xl font-bold">{selectedPlan.name}</h2>
+         
+          <button className='text-white border p-2 mt-1 rounded hover:bg-gray-800 border-gray-700'
+            onClick={() => handleProgressClick(selectedPlan._id) }
+            >
+              View Progress
+            </button>
+        
           <ul>
             {selectedPlan.days.map((day, index) => (
               <li key={index} className="text-white mt-2">

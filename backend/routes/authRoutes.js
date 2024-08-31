@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 const {test, registerUser, loginUser, getProfile, signOut} = require('../controllers/authController')
-const {createNewWorkoutPlan, getWorkoutPlan, updateWorkoutPlan} = require('../controllers/workoutPlanContoller')
+const {createNewWorkoutPlan, getWorkoutPlan, updateWorkoutPlan, progress} = require('../controllers/workoutPlanContoller')
 
 //middleware
 router.use(
@@ -20,6 +20,7 @@ router.get('/signout', signOut)
 router.post('/createNewWorkoutPlan',createNewWorkoutPlan)
 router.get('/workoutPlans', getWorkoutPlan)
 router.put('/workoutPlans/:workoutPlanId', updateWorkoutPlan)
+router.get('/progress/:planId', progress)
 
 
 
