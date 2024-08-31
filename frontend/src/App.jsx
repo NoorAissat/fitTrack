@@ -10,6 +10,9 @@ import { UserContextProvider } from '../context/userContext';
 import Dashboard from './pages/Dashboard';
 import './index.css'; 
 import NewWorkoutPlan from './pages/NewWorkoutPlan';
+import ExistWorkoutPlan from './pages/ExistWorkoutPlan';
+
+//import CreateChart from './components/CreateChart';
 
 
 
@@ -33,6 +36,10 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/createNewWorkoutPlan' element={<NewWorkoutPlan/>}/>
+        <Route path='/workoutPlans' element={<ExistWorkoutPlan/>}/>
+       
+        
+        
       </Routes>
       
     </UserContextProvider>

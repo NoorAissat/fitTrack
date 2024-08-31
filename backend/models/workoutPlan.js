@@ -4,7 +4,7 @@ const {Schema} = mongoose;
 const exerciseSchema = new Schema({
     name: {type: String, required:true},
     reps : Number,
-    weight : {type: Number, required:true},
+    weight : Number,
     lastUsedWeight : Number,
 });
 
@@ -16,7 +16,7 @@ const daySchema = new Schema({
 const workoutPlanSchema = new Schema({
     user : {type: Schema.Types.ObjectId, ref: 'User', required:true},
     name :{type:String, required: true},
-    type: { type:String, enum:['predefined', 'custom'], required:true},
+   
     days: [daySchema],
     createdAt: {type: Date, default: Date.now},
 });

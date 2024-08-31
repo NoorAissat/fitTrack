@@ -16,9 +16,11 @@ export default function Dashboard() {
             Create New Workout Plan
           </button>
         </Link>
+        <Link to='/workoutPlans'>
         <button className="border border-blue-500 w-full p-2 text-white font-bold hover:bg-blue-500 transition duration-30">
           View Existing Workout Plan
         </button>
+        </Link>
       </div>
     </div>
   );
