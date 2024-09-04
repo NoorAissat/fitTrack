@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../../context/userContext';
+import { useSnackbar } from 'notistack';
 
 export default function NewWorkoutPlan() {
   const [splitName, setSplitName] = useState('');
@@ -9,7 +10,7 @@ export default function NewWorkoutPlan() {
   const [sections, setSections] = useState([{ name: '', exercises: [] }]);
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  console.log('user from context: ',user );
+  const {enqueueSnackbar} = useSnackbar();
 
   // Handle split length change
   const handleSplitLengthChange = (e) => {
@@ -54,14 +55,18 @@ export default function NewWorkoutPlan() {
       name: splitName,
       days: sections,
     };
+
 console.log('Submitting workout plan data:', data);
+
     try {
       const response = await axios.post('/createNewWorkoutPlan', data);
       console.log('Workout plan created:', response.data);
+      enqueueSnackbar("Workout plan created", {variant: 'success'});
       navigate('/dashboard'); // Redirect after successful creation
     } catch (error) {
-      console.error('Error creating workout plan:', error);
+      enqueueSnackbar('Error creating workout plan', {variant: 'error'});
     }
+
   };
 
   return (

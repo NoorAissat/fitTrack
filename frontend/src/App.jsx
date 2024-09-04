@@ -12,6 +12,7 @@ import "./index.css";
 import NewWorkoutPlan from "./pages/NewWorkoutPlan";
 import ExistWorkoutPlan from "./pages/ExistWorkoutPlan";
 import Progress from "./pages/Progress";
+import EditWorkout from "./pages/editWorkout";
 
 //import CreateChart from './components/CreateChart';
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/createNewWorkoutPlan" element={<NewWorkoutPlan />} />
         <Route path="/workoutPlans" element={<ExistWorkoutPlan />} />
         <Route path="/progress/:planId" element={<Progress/>}/>
+        <Route path="/editWorkout/:planId" element={<EditWorkout/>}/>
       </Routes>
     </UserContextProvider>
   );
