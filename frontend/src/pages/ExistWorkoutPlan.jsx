@@ -75,7 +75,7 @@ export default function ExistWorkoutPlan() {
  
   return (
     <div className="bg-darkGray h-screen p-8">
-      <h1 className="text-white text-2xl font-bold mb-4">
+      <h1 className="text-white  text-2xl font-bold mb-4">
         Existing Workout Plans
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
