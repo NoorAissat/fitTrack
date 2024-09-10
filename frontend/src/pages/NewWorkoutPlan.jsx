@@ -19,9 +19,11 @@ export default function NewWorkoutPlan() {
   const handleSplitLengthChange = (e) => {
     const length = parseInt(e.target.value, 10);
 
-    if(length>7){
+    if (length > 7) {
       setSplitLength(7);
-      enqueueSnackbar ("Enter a number less than or equal to 7 Please" , {variant:"error"});
+      enqueueSnackbar("Enter a number less than or equal to 7 Please", {
+        variant: "error",
+      });
       return;
     }
 
@@ -95,52 +97,53 @@ export default function NewWorkoutPlan() {
   };
 
   return (
-    <div className="bg-darkGray h-screen flex flex-col justify-center items-center">
-      <div className="flex flex-col justify-center items-center absolute top-20 mt-5">
-      <h1 className="text-white text-2xl font-bold mb-4">
-        Create a New Workout Plan
-      </h1>
-      
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-        <input
-          type="text"
-          placeholder="Split Name"
-          value={splitName}
-          onChange={(e) => setSplitName(e.target.value)}
-          className="p-2 rounded bg-gray-800 text-white"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Number of Sections"
-          value={splitLength}
-          onChange={handleSplitLengthChange}
-          min="1"
-          max="7"
-          className="p-2 rounded bg-gray-800 text-white"
-          required
-        />
+    <div className="bg-darkGray min-h-screen flex flex-col  items-center">
+      <div className="flex flex-col justify-center items-center w-full mb-8">
+        <h1 className="text-white text-2xl font-bold mb-4">
+          Create a New Workout Plan
+        </h1>
+
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-full max-w-md">
+          <input
+            type="text"
+            placeholder="Split Name"
+            value={splitName}
+            onChange={(e) => setSplitName(e.target.value)}
+            className="p-2 rounded bg-gray-800 text-white"
+            required
+          />
+          <input
+            type="number"
+            placeholder="Number of Days"
+            value={splitLength}
+            onChange={handleSplitLengthChange}
+            min="1"
+            max="7"
+            className="p-2 rounded bg-gray-800 text-white"
+            required
+          />
         </form>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 px-4">
-       
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-5xl">
         {sections.map((section, index) => (
-          <div key={index} className="bg-gray-700 p-4 rounded  mb-2 min-w-[300px]">
+          <div key={index} className="bg-gray-700 p-4 rounded mb-2 ">
             <input
               type="text"
-              placeholder={`Section ${index + 1} Name`}
+              placeholder={`Split Day ${index + 1} `}
               value={section.name}
               onChange={(e) => handleSectionNameChange(index, e.target.value)}
-              className="p-2 rounded bg-gray-800 w-60 text-white mb-2"
+              className="p-2 rounded bg-gray-800 w-full text-white mb-2"
               required
             />
             <button
               type="button"
               onClick={() => handleAddExercise(index)}
-              className="hover:text-gray-400 text-white py-1 ml-2 px-2 rounded mb-2"
+              className="hover:text-gray-400 text-white py-1  px-2 rounded mb-2"
               title="Add exercise"
+             
             >
               <FontAwesomeIcon icon={faPlusCircle} />
+             
             </button>
             {section.exercises.map((exercise, exerciseIndex) => (
               <div key={exerciseIndex} className="flex items-center mb-2  ">
@@ -156,7 +159,7 @@ export default function NewWorkoutPlan() {
                       e.target.value
                     )
                   }
-                  className="p-2 rounded bg-gray-800 w-60 text-white"
+                  className="p-2 rounded bg-gray-800 w-full  text-white"
                   required
                 />
                 <button
@@ -171,13 +174,14 @@ export default function NewWorkoutPlan() {
             ))}
           </div>
         ))}
-        
       </div>
-      <button type="submit"
-      onClick={(e) => handleSubmit(e)}
-      className="bg-green-500 text-white py-2 rounded ">
-          Create Workout Plan
-        </button>
+      <button
+        type="submit"
+        onClick={(e) => handleSubmit(e)}
+        className="hover:bg-blue-500 border p-2 font-bold border-blue-500 text-white py-2 rounded mt-5 transition duration-300"
+      >
+        Create Workout Plan
+      </button>
     </div>
   );
 }

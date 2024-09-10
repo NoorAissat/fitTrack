@@ -12,12 +12,12 @@ export default function Dashboard() {
       <h1 className="text-white ">Pick which option you would like below!</h1>
       <div>
         <Link to="/createNewWorkoutPlan">
-          <button className="border border-blue-500 w-full  mb-4  mt-4 p-2 text-white font-bold hover:bg-blue-500 transition duration-30">
+          <button className="border border-blue-500 w-full  mb-4  mt-4 p-2 text-white font-bold hover:bg-blue-500 transition duration-300">
             Create New Workout Plan
           </button>
         </Link>
         <Link to='/workoutPlans'>
-        <button className="border border-blue-500 w-full p-2 text-white font-bold hover:bg-blue-500 transition duration-30">
+        <button className="border border-blue-500 w-full p-2 text-white font-bold hover:bg-blue-500 transition duration-300">
           View Existing Workout Plan
         </button>
         </Link>
