@@ -99,7 +99,7 @@ export default function NewWorkoutPlan() {
   return (
     <div className="bg-darkGray min-h-screen flex flex-col  items-center">
       <div className="flex flex-col justify-center items-center w-full mb-8">
-        <h1 className="text-white text-2xl font-bold mb-4">
+        <h1 className="text-white text-2xl font-bold mb-4 mt-4">
           Create a New Workout Plan
         </h1>
 
@@ -113,7 +113,7 @@ export default function NewWorkoutPlan() {
             required
           />
           <input
-            type="number"
+            type = "number"
             placeholder="Number of Days"
             value={splitLength}
             onChange={handleSplitLengthChange}

@@ -34,7 +34,7 @@ export default function Home() {
           with FitTracker and stay motivated with every step!
         </p>
       </div>
-        <Link to="/login" className="hover:text-gray-400 mt-6 font-bold  ">Sign in 
+        <Link to="/login" className="hover:text-gray-400 mt-6 font-bold  ">Login 
         <FontAwesomeIcon className="ml-2" icon={faSignIn} ></FontAwesomeIcon>
         </Link>
         <Link to="/register" className="hover:text-gray-400 m-3 font-bold ">Register

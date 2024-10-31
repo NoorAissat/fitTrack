@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPencilSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -107,22 +107,25 @@ export default function ExistWorkoutPlan() {
 
   return (
     <div className="bg-darkGray min-h-screen p-8">
+      <button onClick={() => navigate(-1)} className="text-white mb-5">
+        <FontAwesomeIcon icon = {faArrowLeft} size="lg"></FontAwesomeIcon>
+      </button>
       <h1 className="text-white  text-2xl font-bold mb-4">
         Existing Workout Plans
       </h1>
-      <button onClick={toggleSearchBar} className="mb-2 mr-2" title="Search">
+      <button onClick={toggleSearchBar} className="mb-3 mr-2" title="Search">
         <FontAwesomeIcon icon={faSearch} className="text-white w-5 " />
       </button>
       {showSearchBar && (
         <input
-          className="rounded p-1 bg-gray-700 mb-2"
+          className="rounded p-1 bg-gray-700"
           placeholder="Search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         ></input>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 ">
         {filteredPlans.map((plan) => (
           <div
             key={plan._id}
@@ -173,7 +176,7 @@ export default function ExistWorkoutPlan() {
                       {exercise.name} - {exercise.reps} reps @ {exercise.weight}{" "}
                       lbs
                       <input
-                        type="number"
+                       
                         placeholder="Reps"
                         value={exercise.reps || ""}
                         onChange={(e) =>
@@ -187,7 +190,7 @@ export default function ExistWorkoutPlan() {
                         className="p-1 ml-2 rounded bg-gray-700 text-white w-16"
                       />
                       <input
-                        type="number"
+                    
                         placeholder="Weight"
                         value={exercise.weight || ""}
                         onChange={(e) =>
@@ -214,6 +217,7 @@ export default function ExistWorkoutPlan() {
           </button>
         </div>
       )}
+      
     </div>
   );
 }

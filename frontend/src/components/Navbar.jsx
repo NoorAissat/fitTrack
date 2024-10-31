@@ -24,13 +24,14 @@ export default function Navbar() {
 
   return (
     <header className="bg-blue-500 p-5 border border-black shawdow-xl">
-    <nav className="flex justify-between items-center">
-      <Link to="/" className="text-white font-bold hover:text-gray-400 transition duration-300">
-        Home
-      </Link>
-      <div className="space-x-6">
+    <nav className='flex justify-between items-center '>
+      
+      <div className="space-x-6 ml-auto">
         {!user && (
           <>
+          <Link to="/" className="text-white font-bold hover:text-gray-400 transition duration-300">
+           Home
+        </Link>
         <Link to="/register" className="text-white font-bold hover:text-gray-400 transition duration-300">
           Register
         </Link>
